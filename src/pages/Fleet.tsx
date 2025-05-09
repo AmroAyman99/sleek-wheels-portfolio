@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
@@ -6,7 +7,7 @@ import { Button } from "@/components/ui/button";
 const vehicles = [
   {
     id: 1,
-    name: 'Cadillac Escalade (Black)',
+    name: 'Cadillac Escalade',
     image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
     description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
     capacity: '7 passengers',
@@ -23,7 +24,7 @@ const vehicles = [
   },
   {
     id: 2,
-    name: 'Cadillac Escalade (White)',
+    name: 'Cadillac Escalade',
     image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
     description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
     capacity: '7 passengers',
@@ -53,6 +54,23 @@ const vehicles = [
       'Head-Up Display',
       'Wireless Phone Charging',
       'Apple CarPlay & Android Auto'
+    ]
+  },
+  {
+    id: 4,
+    name: 'Mercedes-Benz S-Class',
+    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80',
+    description: 'Experience the height of luxury with our Mercedes-Benz S-Class. Featuring a powerful engine, exquisite interior craftsmanship, and cutting-edge technology for the ultimate driving experience.',
+    capacity: '4 passengers',
+    features: [
+      'Premium Nappa Leather Interior',
+      'Hot Stone Massage Seats',
+      'Burmester® 3D Surround Sound System',
+      'ENERGIZING Comfort Control',
+      'Active Ambient Lighting',
+      'MBUX Infotainment System',
+      'Executive Rear Seats',
+      'Augmented Reality Navigation'
     ]
   }
 ];
