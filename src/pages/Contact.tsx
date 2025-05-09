@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -80,7 +79,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-bold">Phone</h3>
-                      <p className="text-gray-700">(202) 555-0123</p>
+                      <p className="text-gray-700">(202)-4699-763</p>
                     </div>
                   </div>
                   
@@ -90,7 +89,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-bold">Email</h3>
-                      <p className="text-gray-700">info@limomo.com</p>
+                      <p className="text-gray-700">mohamed_hassan10010@yahoo.com</p>
                     </div>
                   </div>
                   
@@ -101,8 +100,7 @@ const Contact = () => {
                     <div>
                       <h3 className="font-bold">Office</h3>
                       <p className="text-gray-700">
-                        1234 Luxury Drive<br />
-                        Washington, DC 20001<br />
+                        Washington, DC<br />
                         United States
                       </p>
                     </div>
@@ -110,23 +108,9 @@ const Contact = () => {
                 </div>
                 
                 <div className="mt-12">
-                  <h3 className="text-xl font-bold mb-4">Business Hours</h3>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Monday - Friday:</span>
-                      <span className="font-medium">9:00 AM - 6:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Saturday:</span>
-                      <span className="font-medium">10:00 AM - 4:00 PM</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span className="text-gray-600">Sunday:</span>
-                      <span className="font-medium">Closed</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-700 mt-4">
-                    <span className="font-bold">Note:</span> Our driver services are available 24/7.
+                  <h3 className="text-xl font-bold mb-4">Availability</h3>
+                  <p className="text-gray-700">
+                    Our driver services are available <span className="font-bold">24/7</span>, all week.
                   </p>
                 </div>
               </div>
