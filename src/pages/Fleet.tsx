@@ -55,23 +55,6 @@ const vehicles = [
       'Wireless Phone Charging',
       'Apple CarPlay & Android Auto'
     ]
-  },
-  {
-    id: 4,
-    name: 'Mercedes-Benz S-Class',
-    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80',
-    description: 'Experience the height of luxury with our Mercedes-Benz S-Class. Featuring a powerful engine, exquisite interior craftsmanship, and cutting-edge technology for the ultimate driving experience.',
-    capacity: '4 passengers',
-    features: [
-      'Premium Nappa Leather Interior',
-      'Hot Stone Massage Seats',
-      'Burmester® 3D Surround Sound System',
-      'ENERGIZING Comfort Control',
-      'Active Ambient Lighting',
-      'MBUX Infotainment System',
-      'Executive Rear Seats',
-      'Augmented Reality Navigation'
-    ]
   }
 ];
 
