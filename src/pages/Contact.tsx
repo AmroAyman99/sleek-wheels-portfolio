@@ -1,81 +1,30 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin } from 'lucide-react';
-import { useState } from "react";
+import { Phone, MessageSquare } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
-import { sendContactEmail } from "@/utils/emailService";
-import { initEmailService } from "@/utils/emailService";
-
-// Initialize email service
-initEmailService();
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const phoneNumber = "(202)-4699-763";
   
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
+  const handleCallClick = () => {
+    window.location.href = `tel:${phoneNumber.replace(/[()-\s]/g, '')}`;
+    toast({
+      title: "Calling",
+      description: `Redirecting to call ${phoneNumber}`,
+      duration: 3000
     });
   };
   
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      console.log('Form submitted', formData);
-      
-      // Send the email using our updated email service
-      const result = await sendContactEmail(formData);
-      
-      if (result.success) {
-        // Display success toast
-        toast({
-          title: "Message Sent",
-          description: "Thank you for your message. We'll get back to you shortly.",
-          duration: 5000
-        });
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: ''
-        });
-      } else {
-        toast({
-          title: "Error",
-          description: result.message || "Something went wrong. Please try again later.",
-          variant: "destructive",
-          duration: 5000
-        });
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      toast({
-        title: "Error",
-        description: "Failed to send your message. Please try again later.",
-        variant: "destructive",
-        duration: 5000
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+  const handleSmsClick = () => {
+    window.location.href = `sms:${phoneNumber.replace(/[()-\s]/g, '')}`;
+    toast({
+      title: "SMS",
+      description: `Opening SMS to ${phoneNumber}`,
+      duration: 3000
+    });
   };
 
   return (
@@ -111,30 +60,17 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="font-bold">Phone</h3>
-                      <p className="text-gray-700">(202)-4699-763</p>
+                      <p className="text-gray-700">{phoneNumber}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
                     <div className="h-10 w-10 rounded-full bg-luxury-primary/10 flex items-center justify-center mr-4">
-                      <Mail className="h-5 w-5 text-luxury-primary" />
+                      <MessageSquare className="h-5 w-5 text-luxury-primary" />
                     </div>
                     <div>
-                      <h3 className="font-bold">Email</h3>
-                      <p className="text-gray-700">mohamed_hassan10010@yahoo.com</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="h-10 w-10 rounded-full bg-luxury-primary/10 flex items-center justify-center mr-4">
-                      <MapPin className="h-5 w-5 text-luxury-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold">Office</h3>
-                      <p className="text-gray-700">
-                        Washington, DC<br />
-                        United States
-                      </p>
+                      <h3 className="font-bold">Text Message</h3>
+                      <p className="text-gray-700">Send us an SMS anytime</p>
                     </div>
                   </div>
                 </div>
@@ -151,97 +87,54 @@ const Contact = () => {
             <div className="lg:w-2/3">
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <h2 className="text-2xl font-serif font-bold mb-6">
-                  Send Us a <span className="gold-text">Message</span>
+                  Contact <span className="gold-text">Options</span>
                 </h2>
                 
-                <form onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                        Your Name
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="John Doe"
-                        required
-                        className="w-full"
-                      />
-                    </div>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-xl mb-3">How would you like to reach us?</h3>
+                    <p className="text-gray-600 mb-6">
+                      Simply click one of the options below to connect with our team directly.
+                    </p>
                     
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address
-                      </label>
-                      <Input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="john@example.com"
-                        required
-                        className="w-full"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                        Phone Number
-                      </label>
-                      <Input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="(123) 456-7890"
-                        className="w-full"
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                        Subject
-                      </label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        placeholder="How can we help?"
-                        required
-                        className="w-full"
-                      />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <Button
+                        onClick={handleCallClick}
+                        className="bg-luxury-primary hover:bg-luxury-primary/90 text-black py-8 h-auto"
+                        size="lg"
+                      >
+                        <Phone className="mr-2 h-6 w-6" />
+                        <div className="text-left">
+                          <div className="text-lg font-bold">Call Now</div>
+                          <div className="text-sm">{phoneNumber}</div>
+                        </div>
+                      </Button>
+                      
+                      <Button
+                        onClick={handleSmsClick}
+                        className="bg-luxury-secondary hover:bg-luxury-secondary/90 text-white py-8 h-auto"
+                        size="lg"
+                      >
+                        <MessageSquare className="mr-2 h-6 w-6" />
+                        <div className="text-left">
+                          <div className="text-lg font-bold">Send SMS</div>
+                          <div className="text-sm">{phoneNumber}</div>
+                        </div>
+                      </Button>
                     </div>
                   </div>
                   
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Your Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Please provide details about your inquiry..."
-                      required
-                      className="w-full min-h-[150px]"
-                    />
+                  <div className="pt-6 border-t border-gray-200">
+                    <h3 className="text-xl mb-3">Why Choose Us?</h3>
+                    <ul className="space-y-2 list-disc list-inside text-gray-700">
+                      <li>24/7 availability for your convenience</li>
+                      <li>Professional and courteous drivers</li>
+                      <li>Luxury vehicles meticulously maintained</li>
+                      <li>Competitive rates with transparent pricing</li>
+                      <li>Personalized service for all your transportation needs</li>
+                    </ul>
                   </div>
-                  
-                  <Button 
-                    type="submit"
-                    className="bg-luxury-primary hover:bg-luxury-primary/90 text-black w-full md:w-auto"
-                    size="lg"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
-                </form>
+                </div>
               </div>
               
               <div className="mt-12">
