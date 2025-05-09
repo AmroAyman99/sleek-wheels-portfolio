@@ -9,7 +9,7 @@ const AboutSection = () => {
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="lg:w-1/2">
             <img 
-              src="https://images.unsplash.com/photo-1625252595576-c5be667a37db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+              src="https://inv.assets.sincrod.com/RTT/Cadillac/2018/3752703/default/int_HJU_deg04.jpg" 
               alt="Luxury car interior" 
               className="rounded-lg shadow-xl w-full h-auto object-cover"
             />
