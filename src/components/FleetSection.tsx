@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -13,22 +14,15 @@ import {
 const vehicles = [
   {
     id: 1,
-    name: 'Cadillac Escalade (Black)',
-    image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
+    name: 'Cadillac Escalade',
+    image: 'https://images.unsplash.com/photo-1599912027611-484b9fc447af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
     description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
     features: ['Seats up to 7 passengers', 'Premium Sound System', 'Heated and Cooled Seats', 'WiFi Hotspot', 'Advanced Safety Features']
   },
   {
     id: 2,
-    name: 'Cadillac Escalade (White)',
-    image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-    description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
-    features: ['Seats up to 7 passengers', 'Premium Sound System', 'Heated and Cooled Seats', 'WiFi Hotspot', 'Advanced Safety Features']
-  },
-  {
-    id: 3,
     name: 'Chevrolet Suburban',
-    image: 'https://images.unsplash.com/photo-1565518782968-9f24e58f678b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
+    image: 'https://images.unsplash.com/photo-1609963031402-e9072121a900?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
     description: 'A powerful SUV designed to take your driving experience to new heights. Equipped with a 6.2-liter V8 engine with 420 horsepower. Experience confidence in every maneuver with advanced features.',
     features: ['Seats up to 8 passengers', 'Spacious Interior', 'Powerful V8 Engine', 'Entertainment System', 'Smart Storage Solutions']
   }
@@ -83,7 +77,7 @@ const FleetSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
           {vehicles.map((vehicle) => (
             <Button
               key={vehicle.id}
@@ -97,8 +91,12 @@ const FleetSection = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <Button className="bg-luxury-secondary hover:bg-luxury-secondary/90 text-white" size="lg" asChild>
-            <Link to="/fleet">View Full Fleet Details</Link>
+          <Button 
+            className="bg-luxury-secondary hover:bg-luxury-secondary/90 text-white border-2 border-luxury-secondary" 
+            size="lg" 
+            asChild
+          >
+            <Link to="/fleet" className="text-white hover:text-white">View Full Fleet Details</Link>
           </Button>
         </div>
       </div>
