@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,7 +6,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { generateContactEmailTemplate, sendEmail } from "@/utils/emailService";
+import { sendContactEmail } from "@/utils/emailService";
+import { initEmailService } from "@/utils/emailService";
+
+// Initialize email service
+initEmailService();
 
 const Contact = () => {
   const { toast } = useToast();
@@ -35,15 +38,8 @@ const Contact = () => {
     try {
       console.log('Form submitted', formData);
       
-      // Generate email content using the template
-      const emailContent = generateContactEmailTemplate(formData);
-      
-      // Send the email (this will need to be implemented with your email service)
-      const result = await sendEmail(
-        'mohamed_hassan10010@yahoo.com', // Replace with your actual email when configuring
-        `New Contact Form Submission: ${formData.subject}`,
-        emailContent
-      );
+      // Send the email using our updated email service
+      const result = await sendContactEmail(formData);
       
       if (result.success) {
         // Display success toast

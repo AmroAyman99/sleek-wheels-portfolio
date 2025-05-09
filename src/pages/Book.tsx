@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -11,7 +10,7 @@ import { format } from "date-fns";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import { CalendarIcon, Car } from "lucide-react";
+import { CalendarIcon, Car, Phone, MessageSquare } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -19,11 +18,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { generateBookingEmailTemplate, sendEmail } from "@/utils/emailService";
 
 const vehicles = [
-  { id: 'escalade', name: 'Cadillac Escalade (Black)' },
-  { id: 'escalade-white', name: 'Cadillac Escalade (White)' },
+  { id: 'escalade', name: 'Cadillac Escalade' },
   { id: 'suburban', name: 'Chevrolet Suburban' }
 ];
 
@@ -57,6 +54,53 @@ const Book = () => {
       [field]: value
     });
   };
+
+  // Format booking details for SMS
+  const formatBookingDetails = () => {
+    const vehicleName = vehicles.find(v => v.id === formData.vehicle)?.name || formData.vehicle;
+    const dateStr = date ? format(date, "MMM dd, yyyy") : "Not specified";
+    
+    return `
+New Booking Request:
+Name: ${formData.name}
+Phone: ${formData.phone}
+Email: ${formData.email}
+Vehicle: ${vehicleName}
+Date: ${dateStr}
+Time: ${formData.timeOfService}
+Passengers: ${formData.passengers}
+Pickup: ${formData.pickupLocation}
+Dropoff: ${formData.dropoffLocation}
+Details: ${formData.additionalInfo}
+    `.trim();
+  };
+  
+  // Handle SMS booking
+  const handleSmsBooking = () => {
+    if (!formData.name || !formData.phone || !formData.email || !formData.vehicle || !date || !formData.timeOfService) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill out all required fields before submitting.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    const message = encodeURIComponent(formatBookingDetails());
+    const phoneNumber = "2024699763"; // Your phone number without formatting
+    window.location.href = `sms:${phoneNumber}?body=${message}`;
+    
+    toast({
+      title: "SMS Ready",
+      description: "Your booking details have been prepared. Please send the SMS to complete your request.",
+      duration: 5000
+    });
+  };
+  
+  // Handle phone call
+  const handleCallBooking = () => {
+    window.location.href = `tel:2024699763`;
+  };
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -73,60 +117,23 @@ const Book = () => {
     setIsSubmitting(true);
     
     try {
-      const bookingData = {
-        ...formData,
-        serviceDate: date
-      };
+      // We're not sending an email anymore, just preparing for SMS/call
+      setIsSubmitting(false);
       
-      console.log('Booking submitted', bookingData);
+      toast({
+        title: "Booking Options",
+        description: "Please use the SMS or Call buttons below to complete your booking.",
+        duration: 5000
+      });
       
-      // Generate email content from template
-      const emailContent = generateBookingEmailTemplate(bookingData);
-      
-      // Send the email
-      const result = await sendEmail(
-        'mohamed_hassan10010@yahoo.com', // Replace with your actual email when configuring
-        `New Booking Request from ${formData.name}`,
-        emailContent
-      );
-      
-      if (result.success) {
-        toast({
-          title: "Booking Request Sent",
-          description: "Thank you for your request. We'll get back to you shortly to confirm your booking.",
-          duration: 5000
-        });
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          vehicle: '',
-          pickupLocation: '',
-          dropoffLocation: '',
-          passengers: '',
-          timeOfService: '',
-          additionalInfo: ''
-        });
-        setDate(undefined);
-      } else {
-        toast({
-          title: "Error",
-          description: result.message || "Something went wrong. Please try again later.",
-          variant: "destructive",
-          duration: 5000
-        });
-      }
     } catch (error) {
-      console.error('Error submitting booking:', error);
+      console.error('Error preparing booking:', error);
       toast({
         title: "Error",
-        description: "Failed to submit your booking. Please try again later.",
+        description: "Something went wrong. Please try again.",
         variant: "destructive",
         duration: 5000
       });
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -142,7 +149,7 @@ const Book = () => {
               Book Your <span className="gold-text">Ride</span>
             </h1>
             <p className="text-gray-300 mt-4 max-w-2xl mx-auto">
-              Reserve your luxury transportation experience with LIMO MO. Complete the form below and we'll get back to you promptly to confirm your booking.
+              Reserve your luxury transportation experience with LIMO MO. Complete the form below and contact us to confirm your booking.
             </p>
           </div>
         </div>
@@ -332,14 +339,27 @@ const Book = () => {
                 </div>
                 
                 <div className="pt-6 border-t border-gray-200">
-                  <Button 
-                    type="submit"
-                    className="bg-luxury-primary hover:bg-luxury-primary/90 text-black"
-                    size="lg"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? "Submitting..." : "Submit Booking Request"}
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button 
+                      type="button"
+                      className="bg-green-500 hover:bg-green-600 text-white flex items-center gap-2"
+                      size="lg"
+                      onClick={handleSmsBooking}
+                    >
+                      <MessageSquare className="h-5 w-5" />
+                      Book via SMS
+                    </Button>
+                    
+                    <Button 
+                      type="button"
+                      className="bg-blue-500 hover:bg-blue-600 text-white flex items-center gap-2"
+                      size="lg"
+                      onClick={handleCallBooking}
+                    >
+                      <Phone className="h-5 w-5" />
+                      Call to Book
+                    </Button>
+                  </div>
                 </div>
               </form>
             </div>
@@ -358,7 +378,7 @@ const Book = () => {
               <div className="bg-white rounded-lg shadow p-6">
                 <h3 className="text-xl font-bold mb-4">How Booking Works</h3>
                 <p className="text-gray-700">
-                  After submitting your booking request, our team will review it and contact you within 24 hours to confirm your reservation, discuss any specific requirements, and arrange payment. For urgent bookings, please contact us directly at (202) 555-0123.
+                  After completing the form, you can either send us an SMS with your booking details or call us directly to confirm your reservation. We'll respond promptly to arrange your transportation and discuss any specific requirements.
                 </p>
               </div>
               
