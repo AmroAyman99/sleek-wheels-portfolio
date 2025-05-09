@@ -24,23 +24,6 @@ const vehicles = [
   },
   {
     id: 2,
-    name: 'Cadillac Escalade',
-    image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-    description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
-    capacity: '7 passengers',
-    features: [
-      'Premium Leather Interior',
-      'Heated and Ventilated Seats',
-      'Panoramic Sunroof',
-      'Premium Sound System',
-      'WiFi Hotspot',
-      'Advanced Safety Features',
-      'LED Ambient Lighting',
-      'Power-Folding Third Row'
-    ]
-  },
-  {
-    id: 3,
     name: 'Chevrolet Suburban',
     image: 'https://images.unsplash.com/photo-1565518782968-9f24e58f678b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
     description: 'A powerful SUV designed to take your driving experience to new heights. Equipped with a 6.2-liter V8 engine with 420 horsepower. Experience confidence in every maneuver with advanced features.',
