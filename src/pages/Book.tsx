@@ -18,20 +18,19 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@/components/ui/select";
+import { generateBookingEmailTemplate, sendEmail } from "@/utils/emailService";
 
 const vehicles = [
-  { id: 'escalade', name: 'Cadillac Escalade' },
-  { id: 'suburban', name: 'Chevrolet Suburban' },
-  { id: 'sclass', name: 'Mercedes-Benz S-Class' },
-  { id: 'bmw7', name: 'BMW 7 Series' },
-  { id: 'navigator', name: 'Lincoln Navigator' },
-  { id: 'audia8', name: 'Audi A8' }
+  { id: 'escalade', name: 'Cadillac Escalade (Black)' },
+  { id: 'escalade-white', name: 'Cadillac Escalade (White)' },
+  { id: 'suburban', name: 'Chevrolet Suburban' }
 ];
 
 const Book = () => {
   const { toast } = useToast();
   const [date, setDate] = useState<Date | undefined>(undefined);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -59,7 +58,7 @@ const Book = () => {
     });
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!date) {
@@ -71,32 +70,65 @@ const Book = () => {
       return;
     }
     
-    const bookingData = {
-      ...formData,
-      serviceDate: date
-    };
+    setIsSubmitting(true);
     
-    console.log('Booking submitted', bookingData);
-    
-    toast({
-      title: "Booking Request Sent",
-      description: "Thank you for your request. We'll get back to you shortly to confirm your booking.",
-      duration: 5000
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      vehicle: '',
-      pickupLocation: '',
-      dropoffLocation: '',
-      passengers: '',
-      timeOfService: '',
-      additionalInfo: ''
-    });
-    setDate(undefined);
+    try {
+      const bookingData = {
+        ...formData,
+        serviceDate: date
+      };
+      
+      console.log('Booking submitted', bookingData);
+      
+      // Generate email content from template
+      const emailContent = generateBookingEmailTemplate(bookingData);
+      
+      // Send the email
+      const result = await sendEmail(
+        'mohamed_hassan10010@yahoo.com', // Replace with your actual email when configuring
+        `New Booking Request from ${formData.name}`,
+        emailContent
+      );
+      
+      if (result.success) {
+        toast({
+          title: "Booking Request Sent",
+          description: "Thank you for your request. We'll get back to you shortly to confirm your booking.",
+          duration: 5000
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          vehicle: '',
+          pickupLocation: '',
+          dropoffLocation: '',
+          passengers: '',
+          timeOfService: '',
+          additionalInfo: ''
+        });
+        setDate(undefined);
+      } else {
+        toast({
+          title: "Error",
+          description: result.message || "Something went wrong. Please try again later.",
+          variant: "destructive",
+          duration: 5000
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting booking:', error);
+      toast({
+        title: "Error",
+        description: "Failed to submit your booking. Please try again later.",
+        variant: "destructive",
+        duration: 5000
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -304,8 +336,9 @@ const Book = () => {
                     type="submit"
                     className="bg-luxury-primary hover:bg-luxury-primary/90 text-black"
                     size="lg"
+                    disabled={isSubmitting}
                   >
-                    Submit Booking Request
+                    {isSubmitting ? "Submitting..." : "Submit Booking Request"}
                   </Button>
                 </div>
               </form>

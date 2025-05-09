@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { generateContactEmailTemplate, sendEmail } from "@/utils/emailService";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -16,6 +18,7 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,25 +28,58 @@ const Contact = () => {
     });
   };
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted', formData);
+    setIsSubmitting(true);
     
-    // Display success toast
-    toast({
-      title: "Message Sent",
-      description: "Thank you for your message. We'll get back to you shortly.",
-      duration: 5000
-    });
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    try {
+      console.log('Form submitted', formData);
+      
+      // Generate email content using the template
+      const emailContent = generateContactEmailTemplate(formData);
+      
+      // Send the email (this will need to be implemented with your email service)
+      const result = await sendEmail(
+        'mohamed_hassan10010@yahoo.com', // Replace with your actual email when configuring
+        `New Contact Form Submission: ${formData.subject}`,
+        emailContent
+      );
+      
+      if (result.success) {
+        // Display success toast
+        toast({
+          title: "Message Sent",
+          description: "Thank you for your message. We'll get back to you shortly.",
+          duration: 5000
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: result.message || "Something went wrong. Please try again later.",
+          variant: "destructive",
+          duration: 5000
+        });
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send your message. Please try again later.",
+        variant: "destructive",
+        duration: 5000
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -205,8 +241,9 @@ const Contact = () => {
                     type="submit"
                     className="bg-luxury-primary hover:bg-luxury-primary/90 text-black w-full md:w-auto"
                     size="lg"
+                    disabled={isSubmitting}
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </div>

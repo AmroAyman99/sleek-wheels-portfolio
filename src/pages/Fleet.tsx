@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
@@ -7,7 +6,7 @@ import { Button } from "@/components/ui/button";
 const vehicles = [
   {
     id: 1,
-    name: 'Cadillac Escalade',
+    name: 'Cadillac Escalade (Black)',
     image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
     description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
     capacity: '7 passengers',
@@ -24,9 +23,26 @@ const vehicles = [
   },
   {
     id: 2,
+    name: 'Cadillac Escalade (White)',
+    image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
+    description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
+    capacity: '7 passengers',
+    features: [
+      'Premium Leather Interior',
+      'Heated and Ventilated Seats',
+      'Panoramic Sunroof',
+      'Premium Sound System',
+      'WiFi Hotspot',
+      'Advanced Safety Features',
+      'LED Ambient Lighting',
+      'Power-Folding Third Row'
+    ]
+  },
+  {
+    id: 3,
     name: 'Chevrolet Suburban',
     image: 'https://images.unsplash.com/photo-1565518782968-9f24e58f678b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-    description: 'A powerful SUV designed to take your driving experience to new heights. Equipped with a 6.2-liter V8 engine with 420 horsepower and 625 Nm of torque. Experience confidence in every maneuver with advanced features.',
+    description: 'A powerful SUV designed to take your driving experience to new heights. Equipped with a 6.2-liter V8 engine with 420 horsepower. Experience confidence in every maneuver with advanced features.',
     capacity: '8 passengers',
     features: [
       'Spacious Interior',
@@ -37,74 +53,6 @@ const vehicles = [
       'Head-Up Display',
       'Wireless Phone Charging',
       'Apple CarPlay & Android Auto'
-    ]
-  },
-  {
-    id: 3,
-    name: 'Mercedes-Benz S-Class',
-    image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-    description: 'Experience unparalleled luxury with the Mercedes-Benz S-Class. Featuring a powerful turbocharged engine and the latest in automotive technology and comfort.',
-    capacity: '4 passengers',
-    features: [
-      'Executive Seating',
-      'MBUX Infotainment System',
-      'Burmester 4D Surround Sound',
-      'Active Ambient Lighting',
-      'Driver Assistance Package',
-      'Massage Seats',
-      'Rear Seat Entertainment',
-      'Digital Light LED Headlamps'
-    ]
-  },
-  {
-    id: 4,
-    name: 'BMW 7 Series',
-    image: 'https://images.unsplash.com/photo-1556189250-72ba954cfc2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-    description: 'The pinnacle of BMW luxury and technology. A sophisticated sedan offering supreme comfort with an authoritative presence and refined, responsive performance.',
-    capacity: '4 passengers',
-    features: [
-      'Merino Leather Upholstery',
-      'BMW Interaction Bar',
-      'Panoramic Sky Lounge LED Roof',
-      'Bowers & Wilkins Diamond Surround Sound',
-      'BMW Theatre Screen',
-      'Automatic Doors',
-      '5.5-inch Touchscreen Controls in Rear',
-      'Executive Lounge Seating'
-    ]
-  },
-  {
-    id: 5,
-    name: 'Lincoln Navigator',
-    image: 'https://images.unsplash.com/photo-1575750993763-bc98dbdf223e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-    description: 'The Lincoln Navigator combines power and elegance to create an exceptional luxury SUV experience. With its imposing stance and refined interior, it offers both comfort and capability.',
-    capacity: '7 passengers',
-    features: [
-      'Perfect Position Seats with 30-Way Adjustability',
-      'Revel® Ultima 3D Audio System',
-      'Active Motion Massage',
-      'Illuminated Lincoln Star Emblem',
-      'Head-Up Display',
-      'Phone As A Key Technology',
-      'Lincoln Black Label Themes',
-      'Advanced Driver Assistance'
-    ]
-  },
-  {
-    id: 6,
-    name: 'Audi A8',
-    image: 'https://images.unsplash.com/photo-1616422285623-13ff0162193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1287&q=80',
-    description: 'The Audi A8 is the epitome of automotive advancement and luxury. Its sophisticated design harmoniously combines with innovative technology for an unmatched driving experience.',
-    capacity: '4 passengers',
-    features: [
-      'Valcona Leather Upholstery',
-      'MMI Touch Response System',
-      'Bang & Olufsen 3D Advanced Sound System',
-      'Rear Seat Remote Control',
-      'Adaptive Air Suspension',
-      'Matrix LED Headlights',
-      'Panoramic Sunroof',
-      'Audi Virtual Cockpit Plus'
     ]
   }
 ];
