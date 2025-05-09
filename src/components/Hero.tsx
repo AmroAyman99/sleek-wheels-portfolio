@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <img 
-          src="../assets/limoomo.jpg" 
+          src="fathy10010/sleek-wheels-portfolio/src/assets/limoomo.jpg" 
           alt="Luxury car" 
           className="w-full h-full object-cover"
         />
