@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import limoomoImage from "@/assets/limoomo.jpg";
 
 const Hero = () => {
   return (
@@ -8,7 +9,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <img 
-          src="/src/assets/limoomo.jpg" 
+          src={limoomoImage} 
           alt="Luxury car" 
           className="w-full h-full object-cover"
         />
