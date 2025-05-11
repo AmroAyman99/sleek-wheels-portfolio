@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
-  const phoneNumber = "(202)-4699-763";
+  const phoneNumber = "(202) 469-9763";
   
   const handleCallClick = () => {
     window.location.href = `tel:${phoneNumber.replace(/[()-\s]/g, '')}`;

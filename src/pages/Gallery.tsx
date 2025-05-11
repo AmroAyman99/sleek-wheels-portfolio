@@ -7,45 +7,39 @@ import { useState } from "react";
 const galleryImages = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
+    src: '/src/assets/chevrolet(1).jpg',
     category: 'vehicles',
-    title: 'Luxury SUV Interior'
+    title: 'Luxury Chevrolet Suburban'
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=3543&q=80',
+    src: '/src/assets/Cadillac-Escalade(6).jpg',
     category: 'vehicles',
-    title: 'Sports Car'
+    title: 'Luxury Cadillac Escalade'
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
+    src: '/src/assets/Cadillac-Escalade(2).jpg',
     category: 'vehicles',
-    title: 'Luxury Sedan'
+    title: 'Luxury Cadillac Escalade'
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
+    src: '/src/assets/wedding-transportation-near-me-(1).webp',
     category: 'events',
     title: 'Wedding Transportation'
   },
   {
     id: 5,
-    src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
-    category: 'vehicles',
-    title: 'Limousine Interior'
-  },
-  {
-    id: 6,
     src: 'https://images.unsplash.com/photo-1501066927591-314112b5888e?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
     category: 'landmarks',
     title: 'Washington Monument'
   },
   {
     id: 7,
-    src: 'https://images.unsplash.com/photo-1563531631-09af78ce49cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
+    src: '/src/assets/R.jpeg',
     category: 'vehicles',
-    title: 'Luxury SUV Exterior'
+    title: 'Luxury SUV Interior'
   },
   {
     id: 8,
@@ -58,12 +52,6 @@ const galleryImages = [
     src: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
     category: 'events',
     title: 'Corporate Event'
-  },
-  {
-    id: 10,
-    src: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
-    category: 'vehicles',
-    title: 'Classic Car'
   },
   {
     id: 11,

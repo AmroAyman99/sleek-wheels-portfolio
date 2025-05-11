@@ -15,14 +15,14 @@ const vehicles = [
   {
     id: 1,
     name: 'Cadillac Escalade',
-    image: 'https://trinityrental.com/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Ftrinityrental-e51d5.appspot.com%2Fcadillac_escalade_luxary_937c898434%2Fcadillac_escalade_luxary_937c898434.jpg&w=1080&q=75',
+    image: '/src/assets/Cadillac-Escalade(5).jpg',
     description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
     features: ['Seats up to 7 passengers', 'Premium Sound System', 'Heated and Cooled Seats', 'WiFi Hotspot', 'Advanced Safety Features']
   },
   {
     id: 2,
     name: 'Chevrolet Suburban',
-    image: 'https://www.motortrend.com/uploads/2023/10/MY25_Chevrolet_Suburban_HC.jpg?w=768&width=768&q=75&format=webp',
+    image: '/src/assets/CHEVROLET_Suburban(3).jpg',
     description: 'A powerful SUV designed to take your driving experience to new heights. Equipped with a 6.2-liter V8 engine with 420 horsepower. Experience confidence in every maneuver with advanced features.',
     features: ['Seats up to 8 passengers', 'Spacious Interior', 'Powerful V8 Engine', 'Entertainment System', 'Smart Storage Solutions']
   }
