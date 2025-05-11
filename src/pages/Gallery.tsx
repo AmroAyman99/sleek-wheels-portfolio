@@ -7,25 +7,25 @@ import { useState } from "react";
 const galleryImages = [
   {
     id: 1,
-    src: '/src/assets/chevrolet(1).jpg',
+    src: '@/assets/chevrolet(1).jpg',
     category: 'vehicles',
     title: 'Luxury Chevrolet Suburban'
   },
   {
     id: 2,
-    src: '/src/assets/Cadillac-Escalade(6).jpg',
+    src: '@/assets/Cadillac-Escalade(6).jpg',
     category: 'vehicles',
     title: 'Luxury Cadillac Escalade'
   },
   {
     id: 3,
-    src: '/src/assets/Cadillac-Escalade(2).jpg',
+    src: '@/assets/Cadillac-Escalade(2).jpg',
     category: 'vehicles',
     title: 'Luxury Cadillac Escalade'
   },
   {
     id: 4,
-    src: '/src/assets/wedding-transportation-near-me-(1).webp',
+    src: '@/assets/wedding-transportation-near-me-(1).webp',
     category: 'events',
     title: 'Wedding Transportation'
   },
@@ -37,7 +37,7 @@ const galleryImages = [
   },
   {
     id: 7,
-    src: '/src/assets/R.jpeg',
+    src: '@/assets/R.jpeg',
     category: 'vehicles',
     title: 'Luxury SUV Interior'
   },
