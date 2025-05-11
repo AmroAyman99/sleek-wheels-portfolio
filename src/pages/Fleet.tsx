@@ -3,12 +3,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import cadillacEscalade from '@/assets/Cadillac-Escalade(5).jpg';
+import chevroletSuburban from '@/assets/CHEVROLET_Suburban(3).jpg';
 
 const vehicles = [
   {
     id: 1,
     name: 'Cadillac Escalade',
-    image: '@/assets/Cadillac-Escalade(5).jpg',
+    image: cadillacEscalade,
     description: 'Dynamic 6.2-liter V8 engine with Dynamic Fuel Control System. 22-inch 14-spoke aluminum wheels with a glossy silver finish. Electrically adjustable 10-way driver and passenger front seats with heating feature.',
     capacity: '7 passengers',
     features: [
@@ -25,7 +27,7 @@ const vehicles = [
   {
     id: 2,
     name: 'Chevrolet Suburban',
-    image: '@/assets/CHEVROLET_Suburban(3).jpg',
+    image: chevroletSuburban,
     description: 'A powerful SUV designed to take your driving experience to new heights. Equipped with a 6.2-liter V8 engine with 420 horsepower. Experience confidence in every maneuver with advanced features.',
     capacity: '8 passengers',
     features: [

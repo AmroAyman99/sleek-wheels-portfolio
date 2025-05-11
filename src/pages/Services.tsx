@@ -3,12 +3,18 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import airportImg from '@/assets/airport.jpeg';
+import corporateImg from '@/assets/coroporate-transportation3.jpeg';
+import weddingImg from '@/assets/wedding-transportation-near-me-(1).webp';
+import specialEventsImg from '@/assets/red-carpet-limo_721969-1169.avif';
+import cityToursImg from '@/assets/photo-1501466044931-62695aada8e9.avif';
+import hourlyChartersImg from '@/assets/Charters-1.jpg';
 
 const services = [
   {
     title: 'Airport Transfers',
     description: 'Our airport transfer service ensures you reach your destination promptly and comfortably. We monitor flight schedules for any delays and adjust pickup times accordingly. Your chauffeur will meet you at the arrivals area, assist with luggage, and escort you to your vehicle for a stress-free journey.',
-    image: '@/assets/airport.jpeg',
+    image: airportImg,
     features: [
       'Flight tracking',
       'Meet & greet service',
@@ -21,7 +27,7 @@ const services = [
   {
     title: 'Corporate Transportation',
     description: 'Make the right impression with our corporate transportation services. Whether you need transportation for executives, clients, or staff, we provide reliable, punctual, and professional service. Our vehicles are equipped with Wi-Fi and charging ports to keep you connected on the go.',
-    image: '@/assets/coroporate-transportation3.jpeg',
+    image: corporateImg,
     features: [
       'Corporate accounts available',
       'Professional chauffeurs',
@@ -34,7 +40,7 @@ const services = [
   {
     title: 'Wedding Transportation',
     description: 'Your special day deserves nothing but the best. Our wedding transportation service ensures you and your wedding party arrive in style and on time. We offer special packages that include decorated vehicles, red carpet service, and champagne for the newlyweds.',
-    image: '@/assets/wedding-transportation-near-me-(1).webp',
+    image: weddingImg,
     features: [
       'Decorated vehicles',
       'Red carpet service',
@@ -47,7 +53,7 @@ const services = [
   {
     title: 'Special Events',
     description: 'Arrive in style to proms, parties, concerts, sporting events, or any special occasion. Our chauffeurs ensure you have a memorable experience from start to finish. We can accommodate individual or group transportation needs with various vehicle options.',
-    image: '@/assets/red-carpet-limo_721969-1169.avif',
+    image: specialEventsImg,
     features: [
       'Timely pickups and drop-offs',
       'Custom routes available',
@@ -60,7 +66,7 @@ const services = [
   {
     title: 'City Tours',
     description: 'Explore Washington D.C. and the surrounding areas with our guided city tours. Our knowledgeable chauffeurs double as guides, sharing fascinating information about landmarks and attractions. Customize your tour or choose from our popular itineraries.',
-    image: '@/assets/photo-1501466044931-62695aada8e9.avif',
+    image: cityToursImg,
     features: [
       'Customizable routes',
       'Knowledgeable guides',
@@ -73,7 +79,7 @@ const services = [
   {
     title: 'Hourly Charters',
     description: 'Book our vehicles by the hour for ultimate flexibility. Perfect for business meetings, shopping trips, restaurant hopping, or any multi-stop journeys. Your chauffeur will remain at your disposal throughout the reserved time, ensuring your schedule runs smoothly.',
-    image: '@/assets/Charters-1.jpg',
+    image: hourlyChartersImg,
     features: [
       'Flexible scheduling',
       'Dedicated chauffeur',

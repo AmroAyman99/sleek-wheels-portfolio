@@ -2,30 +2,34 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useState } from "react";
+import  chevorletSuburban  from '@/assets/chevrolet(1).jpg';
+import  cadillacEscalade  from '@/assets/Cadillac-Escalade(2).jpg';
+import  weddingTransportation  from '@/assets/wedding-transportation-near-me-(1).webp';
+import interiorImg from '@/assets/R.jpeg';
 
 // Gallery images - replace with your actual images
 const galleryImages = [
   {
     id: 1,
-    src: '@/assets/chevrolet(1).jpg',
+    src: chevorletSuburban,
     category: 'vehicles',
     title: 'Luxury Chevrolet Suburban'
   },
   {
     id: 2,
-    src: '@/assets/Cadillac-Escalade(6).jpg',
+    src: cadillacEscalade,
     category: 'vehicles',
     title: 'Luxury Cadillac Escalade'
   },
   {
     id: 3,
-    src: '@/assets/Cadillac-Escalade(2).jpg',
+    src: cadillacEscalade,
     category: 'vehicles',
     title: 'Luxury Cadillac Escalade'
   },
   {
     id: 4,
-    src: '@/assets/wedding-transportation-near-me-(1).webp',
+    src: weddingTransportation,
     category: 'events',
     title: 'Wedding Transportation'
   },
@@ -37,7 +41,7 @@ const galleryImages = [
   },
   {
     id: 7,
-    src: '@/assets/R.jpeg',
+    src: interiorImg,
     category: 'vehicles',
     title: 'Luxury SUV Interior'
   },
