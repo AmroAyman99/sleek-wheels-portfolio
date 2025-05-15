@@ -5,6 +5,9 @@ import { useState } from "react";
 import  chevorletSuburban  from '@/assets/chevrolet(1).jpg';
 import  cadillacEscalade  from '@/assets/Cadillac-Escalade(2).jpg';
 import  weddingTransportation  from '@/assets/wedding-transportation-near-me-(1).webp';
+import  customer1 from '@/assets/Customer(2).jpg';
+import  customer2 from '@/assets/Customer(1).jpg';
+import  customer3 from '@/assets/Customer(3).jpg';
 import interiorImg from '@/assets/R.jpeg';
 
 // Gallery images - replace with your actual images
@@ -23,49 +26,31 @@ const galleryImages = [
   },
   {
     id: 3,
-    src: cadillacEscalade,
-    category: 'vehicles',
-    title: 'Luxury Cadillac Escalade'
-  },
-  {
-    id: 4,
     src: weddingTransportation,
     category: 'events',
     title: 'Wedding Transportation'
   },
   {
-    id: 5,
-    src: 'https://images.unsplash.com/photo-1501066927591-314112b5888e?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
-    category: 'landmarks',
+    id: 4,
+    src: customer1,
+    category: 'events',
     title: 'Washington Monument'
   },
   {
-    id: 7,
+    id: 5,
     src: interiorImg,
     category: 'vehicles',
     title: 'Luxury SUV Interior'
   },
   {
-    id: 8,
-    src: 'https://images.unsplash.com/photo-1508974462591-3c124867fdf8?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
-    category: 'landmarks',
+    id: 6,
+    src: customer2,
+    category: 'events',
     title: 'US Capitol'
   },
   {
     id: 9,
-    src: 'https://images.unsplash.com/photo-1519501025264-65ba15a82390?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
-    category: 'events',
-    title: 'Corporate Event'
-  },
-  {
-    id: 11,
-    src: 'https://images.unsplash.com/photo-1526726538690-5cbf956ae2fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
-    category: 'landmarks',
-    title: 'Lincoln Memorial'
-  },
-  {
-    id: 12,
-    src: 'https://images.unsplash.com/photo-1594299447935-e5b840f54b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=3540&q=80',
+    src: customer3,
     category: 'events',
     title: 'Special Occasion'
   }
@@ -139,16 +124,6 @@ const Gallery = () => {
                 onClick={() => setActiveFilter('events')}
               >
                 Events
-              </button>
-              <button
-                className={`px-4 py-2 rounded-full ${
-                  activeFilter === 'landmarks'
-                    ? 'bg-luxury-primary text-black'
-                    : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                } transition-colors`}
-                onClick={() => setActiveFilter('landmarks')}
-              >
-                Landmarks
               </button>
             </div>
           </div>
